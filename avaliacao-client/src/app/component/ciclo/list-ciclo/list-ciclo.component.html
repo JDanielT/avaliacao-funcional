@@ -1,0 +1,43 @@
+<div class="content-header">
+  <h1>
+    Ciclos
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
+    <li class="active">Ciclos</li>
+  </ol>
+
+  <br/>
+
+  <button class="btn btn-primary" (click)="add()">
+    Novo <i class="fa fa-plus" aria-hidden="true"></i>
+  </button>
+
+  <br/>
+
+</div>
+
+<section class="content">
+
+
+  <table class="ui table table-striped">
+    <thead>
+    <tr>
+      <th>Ciclo</th>
+      <th>Início</th>
+      <th>Fim</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let ciclo of getList()">
+      <td>{{ciclo.descricao}}</td>
+      <td>{{ciclo.inicio | date : 'dd/MM/yyyy'}}</td>
+      <td>{{ciclo.fim | date : 'dd/MM/yyyy' }}</td>
+    </tr>
+    </tbody>
+
+  </table>
+
+</section>
+
