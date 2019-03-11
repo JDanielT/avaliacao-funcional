@@ -7,37 +7,50 @@
     <li class="active">Ciclos</li>
   </ol>
 
-  <br/>
+  <br />
 
   <button class="btn btn-primary" (click)="add()">
     Novo <i class="fa fa-plus" aria-hidden="true"></i>
   </button>
 
-  <br/>
+  <br />
+  <hr />
 
 </div>
 
 <section class="content">
 
-
-  <table class="ui table table-striped">
+  <table class="ui celled table">
     <thead>
-    <tr>
-      <th>Ciclo</th>
-      <th>Início</th>
-      <th>Fim</th>
-    </tr>
+      <tr>
+        <th>Ciclo</th>
+        <th>Início</th>
+        <th>Fim</th>
+        <th class="opcoes">Opções</th>
+      </tr>
     </thead>
 
     <tbody>
-    <tr *ngFor="let ciclo of getList()">
-      <td>{{ciclo.descricao}}</td>
-      <td>{{ciclo.inicio | date : 'dd/MM/yyyy'}}</td>
-      <td>{{ciclo.fim | date : 'dd/MM/yyyy' }}</td>
-    </tr>
+      <tr *ngFor="let entity of getList()">
+        <td>{{entity.descricao}}</td>
+        <td>{{entity.inicio}}</td>
+        <td>{{entity.fim}}</td>
+        <td class="opcoes">
+
+          <button class="btn btn-success" (click)="update(entity)">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </button>
+
+          <span class="divider"></span>
+
+          <button class="btn btn-danger" (click)="delete(entity)">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+
+        </td>
+      </tr>
     </tbody>
 
   </table>
 
 </section>
-

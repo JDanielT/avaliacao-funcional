@@ -17,7 +17,6 @@ export class FormCicloComponent extends AbstractFormComponent<Ciclo> {
     super(router, actRoute, Ciclo);
   }
 
-
   getService(): CicloService {
     return this.service;
   }

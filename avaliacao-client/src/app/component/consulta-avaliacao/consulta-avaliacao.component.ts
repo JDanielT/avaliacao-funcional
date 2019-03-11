@@ -6,6 +6,10 @@ import {Avaliacao} from '../../model/avaliacao';
 import {Tipo} from '../../model/formulario';
 import {Ciclo} from '../../model/ciclo';
 import {CicloService} from '../../service/ciclo.service';
+import {Localizacao} from '../../model/localizacao';
+import {LocalizacaoService} from '../../service/localizacao.service';
+
+import swal from 'sweetalert2';
 
 declare let $;
 
@@ -21,12 +25,14 @@ export class ConsultaAvaliacaoComponent implements OnInit {
 
   ciclos: Ciclo[];
   avaliacoes: Avaliacao[];
+  localizacao: Localizacao;
 
   Tipo = Tipo;
 
   constructor(private servidorService: ServidorService,
               private avaliacaoService: AvaliacaoService,
-              private cicloService: CicloService) {
+              private cicloService: CicloService,
+              private localizacaoService: LocalizacaoService) {
   }
 
   ngOnInit() {
@@ -42,8 +48,8 @@ export class ConsultaAvaliacaoComponent implements OnInit {
 
   buscarAvaliacoes(): void {
 
-    if (!this.servidor || !this.ciclo) {
-      alert('Avaliação ou servidor não selecionado');
+    if (!this.ciclo || !this.servidor) {
+      swal('Oops!', 'Selecione o ciclo e o servidor', 'warning');
       return;
     }
 
@@ -51,7 +57,11 @@ export class ConsultaAvaliacaoComponent implements OnInit {
       this.avaliacoes = data;
     }, () => {
       this.avaliacoes = undefined;
-      alert('Nenhuma avaliação encontrada');
+      swal('Oops!', 'Nenhuma avaliação encontrada', 'error');
+    });
+
+    this.localizacaoService.buscar(this.ciclo, this.servidor).subscribe(data => {
+      this.localizacao = data;
     });
 
   }

@@ -29,7 +29,9 @@
               "node_modules/admin-lte/dist/css/skins/skin-blue.min.css",
               "node_modules/admin-lte/plugins/iCheck/flat/blue.css",
               "node_modules/admin-lte/bower_components/jquery-ui/themes/base/jquery-ui.min.css",
-              "src/assets/css/semantic-table.min.css",
+              "node_modules/sweetalert2/dist/sweetalert2.css",
+              "src/assets/css/semantic/semantic.min.css",
+              "src/assets/css/data-table/dataTables.semanticui.min.css",
               "src/assets/css/jquery-ui/jquery-ui.min.css",
               "src/assets/css/jquery-ui/jquery-ui.theme.min.css",
               "src/styles.css"
@@ -40,9 +42,14 @@
               "node_modules/admin-lte/dist/js/adminlte.min.js",
               "node_modules/admin-lte/bower_components/jquery-ui/jquery-ui.js",
               "node_modules/datatables.net/js/jquery.dataTables.min.js",
+              "node_modules/sweetalert2/dist/sweetalert2.all.js",
+              "node_modules/sweetalert2/dist/sweetalert2.js",
               "src/assets/js/jquery-migrate-3.0.0.min.js",
-              "src/assets/js/jquery.mask.js",
-              "src/assets/js/jquery-ui.min.js"
+              "src/assets/js/jquery-ui/jquery.mask.js",
+              "src/assets/js/jquery-ui/jquery-ui.min.js",
+              "src/assets/js/data-table/jquery.dataTables.min.js",
+              "src/assets/js/data-table/dataTables.semanticui.min.js",
+              "src/assets/js/semantic/semantic.min.js"
             ],
             "es5BrowserSupport": true
           },

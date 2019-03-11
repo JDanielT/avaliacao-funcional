@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+.content {
+    margin-left: 1%;
+}
+
+.opcoes{
+    text-align: center !important;
+    width: 150px;
+}
+
+.divider {
+    width: 3px !important
+}

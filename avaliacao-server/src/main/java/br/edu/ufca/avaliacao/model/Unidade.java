@@ -8,6 +8,8 @@ import lombok.EqualsAndHashCode;
 public class Unidade implements BaseEntity {
 
     private Long id;
+    private String codigo;
+    private String sigla;
     private String nome;
 
 }

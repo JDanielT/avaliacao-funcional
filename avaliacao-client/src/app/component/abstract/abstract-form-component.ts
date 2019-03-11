@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {AbstractService} from '../../service/abstract.service';
 import {Observable, of} from 'rxjs';
 
+declare let $: any;
+
 export abstract class AbstractFormComponent<T extends BaseEntity> implements OnInit {
 
   private error: any;
@@ -16,6 +18,7 @@ export abstract class AbstractFormComponent<T extends BaseEntity> implements OnI
 
   ngOnInit(): void {
     this.preRegister();
+    this.loadMasks();
   }
 
   abstract getService(): AbstractService<T>;
@@ -43,6 +46,13 @@ export abstract class AbstractFormComponent<T extends BaseEntity> implements OnI
       this.router.navigate([`${this.getService().context()}`]);
     }, data => {
       this.error = data.error;
+    });
+  }
+
+  private loadMasks() {
+    $(document).ready(function () {
+      $('.data').mask('00/00/0000');
+      $('.cpf').mask('000.000.000-00', {reverse: true});
     });
   }
 

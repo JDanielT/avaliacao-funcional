@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LocalizacaoRepository extends JpaRepository<Localizacao, Long> {
+
+    Localizacao findByCicloIdAndServidorId(Long cicloId, Long servidorId);
+
 }

@@ -7,7 +7,7 @@ export class Localizacao implements BaseEntity {
 
   id: number;
   ciclo: Ciclo;
-  unidaed: Unidade;
+  unidade: Unidade;
   servidor: Servidor;
 
 }
