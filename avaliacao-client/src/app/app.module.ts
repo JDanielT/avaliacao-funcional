@@ -15,6 +15,7 @@ import {ConsultaAvaliacaoComponent} from './component/consulta-avaliacao/consult
 import {FooterComponent} from './component/footer/footer.component';
 import {MenuComponent} from './component/menu/menu.component';
 import {HeaderComponent} from './component/header/header.component';
+import { ListResponsavelUnidadeComponent } from './component/responsavel-unidade/list-responsavel-unidade/list-responsavel-unidade.component';
 
 
 registerLocaleData(localePt, 'pt');
@@ -27,7 +28,8 @@ registerLocaleData(localePt, 'pt');
     MenuComponent,
     HeaderComponent,
     ListCicloComponent,
-    FormCicloComponent
+    FormCicloComponent,
+    ListResponsavelUnidadeComponent
   ],
   imports: [
     BrowserModule,

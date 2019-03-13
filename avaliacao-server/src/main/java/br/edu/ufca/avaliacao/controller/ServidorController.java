@@ -24,7 +24,7 @@ public class ServidorController {
     }
 
     @GetMapping("/{nome}")
-    public ResponseEntity buscar(@PathVariable String nome){
+    public ResponseEntity findByNome(@PathVariable String nome){
         nome = StringUtils.stripAccents(nome);
         List<Servidor> servidores = service.findByNome(nome);
         if(servidores == null || servidores.size() == 0){

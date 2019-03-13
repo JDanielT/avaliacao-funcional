@@ -2,6 +2,7 @@ package br.edu.ufca.avaliacao;
 
 import br.edu.ufca.avaliacao.model.*;
 import br.edu.ufca.avaliacao.repository.*;
+import br.edu.ufca.avaliacao.service.UnidadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -35,6 +36,9 @@ public class AvaliacaoApplication {
 
     @Autowired
     private LocalizacaoRepository localizacaoRepository;
+
+    @Autowired
+    private UnidadeService unidadeService;
 
     @Bean
     public RestTemplate rest() {
@@ -82,7 +86,6 @@ public class AvaliacaoApplication {
 //                    });
 
 
-
 //            cicloRepository.findAll()
 //                    .stream()
 //                    .filter(ciclo -> ciclo.getExercicio() >= 2018)
@@ -108,9 +111,6 @@ public class AvaliacaoApplication {
 //                        });
 //
 //                    });
-
-
-
 
 
 //            cicloRepository.findAll()
@@ -141,9 +141,6 @@ public class AvaliacaoApplication {
 //                    });
 
 
-
-
-
 //            Map<Long, Integer> servidorCount = new HashMap<>();
 //            avaliacaoRepository.findAll().stream().filter(a -> a.getCiclo().getId() == 58).forEach(a -> {
 //                servidorCount.put(a.getAvaliadoId(), servidorCount.get(a.getAvaliadoId()) == null ? 1 : servidorCount.get(a.getAvaliadoId()) + 1);
@@ -154,8 +151,6 @@ public class AvaliacaoApplication {
 //                System.out.println(rest.getForObject("https://dadosabertosapi.ufca.edu.br/service/recurso/servidor_por_id.json?id="+entry.getKey(), String.class));
 //
 //            });
-
-
 
 
 //            avaliacaoRepository.findAll().stream().filter(a -> a.getCiclo().getId() == 58).forEach(a -> {
@@ -193,9 +188,6 @@ public class AvaliacaoApplication {
 //                }
 //
 //            });
-
-
-
 
 
 //            cicloRepository.findAll()
