@@ -18,10 +18,7 @@
     <div class="col-md-5">
 
       <label>Avaliação</label>
-      <select class="form-control" [(ngModel)]="ciclo">
-        <option value="undefined">Selecione</option>
-        <option *ngFor="let c of ciclos" [value]="c.id">{{c.descricao}}</option>
-      </select>
+      <app-ciclo-select (emitter)="getIdCiclo($event)" ></app-ciclo-select>
 
     </div>
 
@@ -35,8 +32,7 @@
 
       <div class="input-group input-group-sm">
 
-        <input placeholder="Busque o servidor pelo nome"
-               class="form-control autocomplete"/>
+        <app-servidor-autocomplete (emitter)="getIdServidor($event)" > </app-servidor-autocomplete>
 
         <span class="input-group-btn">
           <button class="btn btn-flat btn-success" (click)="buscarAvaliacoes()">

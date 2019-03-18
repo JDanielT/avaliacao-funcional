@@ -22,7 +22,7 @@ public class PerguntaService extends AbstractService<Pergunta> {
         return repository;
     }
 
-    public List<Pergunta> findByFormularioIdOrderById(Long formId){
+    public List<Pergunta> findByFormularioIdOrderById(Long formId) {
         return getRepository().findByFormularioIdOrderById(formId);
     }
 

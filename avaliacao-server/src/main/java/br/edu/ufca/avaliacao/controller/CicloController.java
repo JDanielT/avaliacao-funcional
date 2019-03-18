@@ -27,7 +27,7 @@ public class CicloController extends AbstractController<Ciclo> {
     }
 
     @GetMapping
-    public ResponseEntity findAll(){
+    public ResponseEntity findAll() {
 
         var ciclos = cicloService.findAll();
         ciclos.sort(Comparator.comparing(Ciclo::getExercicio).reversed());

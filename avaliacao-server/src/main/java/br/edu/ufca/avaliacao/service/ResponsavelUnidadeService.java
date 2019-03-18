@@ -6,6 +6,7 @@ import br.edu.ufca.avaliacao.model.Unidade;
 import br.edu.ufca.avaliacao.repository.ResponsavelUnidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -20,13 +21,20 @@ public class ResponsavelUnidadeService extends AbstractService<ResponsavelUnidad
     private String findResponsavel;
 
     private ResponsavelUnidadeRepository repository;
-
     private RestTemplate rest;
 
+    private ServidorService servidorService;
+    private UnidadeService unidadeService;
+
     @Autowired
-    public ResponsavelUnidadeService(ResponsavelUnidadeRepository repository, RestTemplate rest) {
+    public ResponsavelUnidadeService(ResponsavelUnidadeRepository repository,
+                                     RestTemplate rest,
+                                     ServidorService servidorService,
+                                     UnidadeService unidadeService) {
         this.repository = repository;
         this.rest = rest;
+        this.servidorService = servidorService;
+        this.unidadeService = unidadeService;
     }
 
     @Override
@@ -35,7 +43,12 @@ public class ResponsavelUnidadeService extends AbstractService<ResponsavelUnidad
     }
 
     public List<ResponsavelUnidade> findByCicloId(Long cicloId) {
-        return getRepository().findByCicloId(cicloId);
+        var responsaveis = getRepository().findByCicloId(cicloId);
+        responsaveis.forEach(r -> {
+            r.setServidor(servidorService.findById(r.getServidorId()));
+            r.setUnidade(unidadeService.findById(r.getUnidadeId()));
+        });
+        return responsaveis;
     }
 
     /**

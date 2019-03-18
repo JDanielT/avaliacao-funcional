@@ -24,10 +24,10 @@ public class ServidorController {
     }
 
     @GetMapping("/{nome}")
-    public ResponseEntity findByNome(@PathVariable String nome){
+    public ResponseEntity findByNome(@PathVariable String nome) {
         nome = StringUtils.stripAccents(nome);
         List<Servidor> servidores = service.findByNome(nome);
-        if(servidores == null || servidores.size() == 0){
+        if (servidores == null || servidores.size() == 0) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(servidores);

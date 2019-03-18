@@ -1,7 +1,7 @@
-import { Router } from '@angular/router';
-import { BaseEntity } from '../../model/base-entity';
-import { OnInit } from '@angular/core';
-import { AbstractService } from '../../service/abstract.service';
+import {Router} from '@angular/router';
+import {BaseEntity} from '../../model/base-entity';
+import {OnInit} from '@angular/core';
+import {AbstractService} from '../../service/abstract.service';
 import swal from 'sweetalert2';
 
 declare let $: any;
@@ -16,38 +16,18 @@ export abstract class AbstractListComponent<T extends BaseEntity> implements OnI
   abstract getService(): AbstractService<T>;
 
   ngOnInit(): void {
-    $(document).ready(() => {
-      $('.table').DataTable({
-        "ordering": false,
-        "language": {
-          "sEmptyTable": "Nenhum registro encontrado",
-          "sProcessing": "A processar...",
-          "sLengthMenu": "Mostrar _MENU_ registos",
-          "sZeroRecords": "Não foram encontrados resultados",
-          "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
-          "sInfoEmpty": "Mostrando de 0 até 0 de 0 registos",
-          "sInfoFiltered": "(filtrado de _MAX_ registos no total)",
-          "sInfoPostFix": "",
-          "sSearch": "Procurar:",
-          "sUrl": "",
-          "oPaginate": {
-            "sFirst": "Primeiro",
-            "sPrevious": "Anterior",
-            "sNext": "Seguinte",
-            "sLast": "Último"
-          },
-          "oAria": {
-            "sSortAscending": ": Ordenar colunas de forma ascendente",
-            "sSortDescending": ": Ordenar colunas de forma descendente"
-          }
-        }
-      });
+    this.getService().findAll().subscribe(data => {
+      this.list = data as T[];
+      this.initTable();
     });
-    this.getService().findAll().subscribe(data => this.list = data as T[]);
   }
 
   getList(): T[] {
     return this.list;
+  }
+
+  setList(list: T[]): void {
+    this.list = list;
   }
 
   add(): void {
@@ -73,6 +53,41 @@ export abstract class AbstractListComponent<T extends BaseEntity> implements OnI
           this.list = this.list.filter(item => item.id !== entity.id);
         });
       }
+    });
+  }
+
+  public initTable(): void {
+    $(document).ready(() => {
+
+      if ($.fn.DataTable.isDataTable('.table')) {
+        $('.table').dataTable().fnDestroy();
+      }
+
+      $('.table').DataTable({
+        'ordering': false,
+        'language': {
+          'sEmptyTable': 'Nenhum registro encontrado',
+          'sProcessing': 'A processar...',
+          'sLengthMenu': 'Mostrar _MENU_ registos',
+          'sZeroRecords': 'Não foram encontrados resultados',
+          'sInfo': 'Mostrando de _START_ até _END_ de _TOTAL_ registos',
+          'sInfoEmpty': 'Mostrando de 0 até 0 de 0 registos',
+          'sInfoFiltered': '(filtrado de _MAX_ registos no total)',
+          'sInfoPostFix': '',
+          'sSearch': 'Procurar:',
+          'sUrl': '',
+          'oPaginate': {
+            'sFirst': 'Primeiro',
+            'sPrevious': 'Anterior',
+            'sNext': 'Seguinte',
+            'sLast': 'Último'
+          },
+          'oAria': {
+            'sSortAscending': ': Ordenar colunas de forma ascendente',
+            'sSortDescending': ': Ordenar colunas de forma descendente'
+          }
+        }
+      });
     });
   }
 

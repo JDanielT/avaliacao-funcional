@@ -31,11 +31,11 @@ public class AvaliacaoService extends AbstractService<Avaliacao> {
         var avaliacoes = getRepository().findByCicloIdAndAvaliadoId(cicloId, servidorId);
 
         avaliacoes.forEach(a -> {
-                    a.setAvaliado(servidorService.findById(a.getAvaliadoId()));
-                    if(a.getAvaliadorId() != null) {
-                        a.setAvaliador(servidorService.findById(a.getAvaliadorId()));
-                    }
-                });
+            a.setAvaliado(servidorService.findById(a.getAvaliadoId()));
+            if (a.getAvaliadorId() != null) {
+                a.setAvaliador(servidorService.findById(a.getAvaliadorId()));
+            }
+        });
 
         return avaliacoes;
 

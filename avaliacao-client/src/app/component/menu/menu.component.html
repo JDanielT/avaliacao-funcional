@@ -3,10 +3,31 @@
   <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar">
     <!-- sidebar menu: : style can be found in sidebar.less -->
-    <ul class="sidebar-menu" >
+    <ul class="sidebar-menu">
 
-      <li class="header" style="text-align: center">MENU DE OPÇÕES</li>
+      <li class="header"><strong>CADASTROS</strong></li>
 
+      <li routerLinkActive="active">
+        <a [routerLink]="['/ciclos']"><i class="fa fa-circle-notch"></i><span>Ciclos</span></a>
+      </li>
+
+      <li routerLinkActive="active">
+        <a [routerLink]="['/responsaveis']"><i class="fa fa-users"></i><span>Responsáveis</span></a>
+      </li>
+
+      <li routerLinkActive="active">
+        <a [routerLink]="['/localizacoes']"><i class="fa fa-map-marker"></i><span>Localizações</span></a>
+      </li>
+
+      <li class="header"><strong>RESULTADOS</strong></li>
+
+      <li routerLinkActive="active">
+        <a [routerLink]="['/resultado-individual']"><i class="fa fa-file-o"></i><span>Resultado Individual</span></a>
+      </li>
+
+      <li routerLinkActive="active">
+        <a ><i class="fa fa-files-o"></i><span>Resultado Geral</span></a>
+      </li>
 
     </ul>
   </section>

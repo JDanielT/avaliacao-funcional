@@ -1,3 +1,61 @@
-<p>
-  list-responsavel-unidade works!
-</p>
+<div class="content-header">
+  <h1>
+    Responsáveis por Unidades
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
+    <li class="active">Responsáveis por Unidades</li>
+  </ol>
+
+  <br/>
+
+</div>
+
+<section class="content">
+
+  <div class="row">
+
+    <div class="col-md-5">
+
+        <label>Avaliação</label>
+        <div class="input-group input-group-sm">
+
+          <app-ciclo-select (emitter)="getIdCiclo($event)" ></app-ciclo-select>
+
+          <span class="input-group-btn">
+            <button class="btn btn-flat btn-success" (click)="buscarResponsaveis()" >
+              <i class="fas fa-search"></i>
+            </button>
+          </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <br/>
+  <hr/>
+
+  <div class="col-md-12" *ngIf="getList()">
+
+    <table class="ui table table-striped">
+      <thead>
+      <tr>
+        <th>Unidade</th>
+        <th>Responsável</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let responsabilidade of getList()">
+        <td>{{responsabilidade.unidade.sigla}} - {{responsabilidade.unidade.nome}}</td>
+        <td>{{responsabilidade.servidor.nome}}</td>
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
+

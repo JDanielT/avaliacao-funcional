@@ -27,14 +27,14 @@ public class UnidadeService {
         this.rest = rest;
     }
 
-    public Unidade findById(Long id){
-        if(unidades.get(id) == null) {
+    public Unidade findById(Long id) {
+        if (unidades.get(id) == null) {
             unidades.put(id, rest.getForObject(String.format(findByid, id), Unidade[].class)[0]);
         }
         return unidades.get(id);
     }
 
-    public List<Unidade> findAll(){
+    public List<Unidade> findAll() {
         return Arrays.asList(rest.getForObject(findAll, Unidade[].class));
     }
 

@@ -1,12 +1,12 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
-import {LOCALE_ID} from '@angular/core';
+
 import {registerLocaleData} from '@angular/common';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import localePt from '@angular/common/locales/pt';
 
 import {ListCicloComponent} from './component/ciclo/list-ciclo/list-ciclo.component';
@@ -15,7 +15,10 @@ import {ConsultaAvaliacaoComponent} from './component/consulta-avaliacao/consult
 import {FooterComponent} from './component/footer/footer.component';
 import {MenuComponent} from './component/menu/menu.component';
 import {HeaderComponent} from './component/header/header.component';
-import { ListResponsavelUnidadeComponent } from './component/responsavel-unidade/list-responsavel-unidade/list-responsavel-unidade.component';
+import {ListResponsavelUnidadeComponent} from './component/responsavel-unidade/list-responsavel-unidade/list-responsavel-unidade.component';
+import { ListLocalizacaoComponent } from './component/localizacao/list-localizacao/list-localizacao.component';
+import { ServidorAutocompleteComponent } from './component/shared/servidor-autocomplete/servidor-autocomplete.component';
+import { CicloSelectComponent } from './component/shared/ciclo-select/ciclo-select.component';
 
 
 registerLocaleData(localePt, 'pt');
@@ -29,7 +32,10 @@ registerLocaleData(localePt, 'pt');
     HeaderComponent,
     ListCicloComponent,
     FormCicloComponent,
-    ListResponsavelUnidadeComponent
+    ListResponsavelUnidadeComponent,
+    ListLocalizacaoComponent,
+    ServidorAutocompleteComponent,
+    CicloSelectComponent
   ],
   imports: [
     BrowserModule,

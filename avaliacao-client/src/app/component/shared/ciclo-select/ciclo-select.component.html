@@ -1,0 +1,4 @@
+<select class="form-control" #ciclo (change)="change(ciclo.value)" >
+  <option value="undefined">Selecione</option>
+  <option *ngFor="let c of ciclos" [value]="c.id" >{{c.descricao}}</option>
+</select>

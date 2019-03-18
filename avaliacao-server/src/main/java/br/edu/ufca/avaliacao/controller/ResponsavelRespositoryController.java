@@ -31,13 +31,13 @@ public class ResponsavelRespositoryController extends AbstractController<Respons
         return service;
     }
 
-    @GetMapping("/{cicloId}")
-    public ResponseEntity findByCiclo(@PathVariable Long cicloId){
-        var responsabilidades = getService().findByCicloId(cicloId);
-        if(responsabilidades == null || responsabilidades.isEmpty()){
+    @GetMapping("/ciclo/{cicloId}")
+    public ResponseEntity findByCiclo(@PathVariable Long cicloId) {
+        var responsaveis = getService().findByCicloId(cicloId);
+        if (responsaveis == null || responsaveis.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(responsabilidades);
+        return ResponseEntity.ok(responsaveis);
     }
 
     @ResponseStatus(HttpStatus.OK)

@@ -27,9 +27,9 @@ public class AvaliacaoController extends AbstractController<Avaliacao> {
 
     @GetMapping("/{cicloId}/{servidorId}")
     public ResponseEntity avaliacoes(@PathVariable Long cicloId,
-                                       @PathVariable Long servidorId){
+                                     @PathVariable Long servidorId) {
         var avaliacoes = service.findByCicloIdAndAvaliadoId(cicloId, servidorId);
-        if(avaliacoes == null || avaliacoes.size() == 0){
+        if (avaliacoes == null || avaliacoes.size() == 0) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(avaliacoes);

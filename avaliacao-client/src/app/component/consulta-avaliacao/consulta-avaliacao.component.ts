@@ -18,32 +18,18 @@ declare let $;
   templateUrl: './consulta-avaliacao.component.html',
   styleUrls: ['./consulta-avaliacao.component.css']
 })
-export class ConsultaAvaliacaoComponent implements OnInit {
+export class ConsultaAvaliacaoComponent {
 
   ciclo: number;
   servidor: number;
 
-  ciclos: Ciclo[];
   avaliacoes: Avaliacao[];
   localizacao: Localizacao;
 
   Tipo = Tipo;
 
-  constructor(private servidorService: ServidorService,
-              private avaliacaoService: AvaliacaoService,
-              private cicloService: CicloService,
+  constructor(private avaliacaoService: AvaliacaoService,
               private localizacaoService: LocalizacaoService) {
-  }
-
-  ngOnInit() {
-    this.buscarCiclos();
-    this.autocomplete();
-  }
-
-  buscarCiclos(): void {
-    this.cicloService.findAll().subscribe(data => {
-      this.ciclos = data;
-    });
   }
 
   buscarAvaliacoes(): void {
@@ -66,40 +52,16 @@ export class ConsultaAvaliacaoComponent implements OnInit {
 
   }
 
-  media(avaliacoes: Avaliacao[]): number {
-    return avaliacoes.map(a => a.nota).reduce((anterior, atual) => anterior + atual) / avaliacoes.length;
+  getIdCiclo(event): void {
+    this.ciclo = event.id;
   }
 
-  autocomplete(): void {
+  getIdServidor(event): void {
+    this.servidor = event.id;
+  }
 
-    const input = $('.autocomplete');
-    input.autocomplete({
-      source: (request, response) => {
-        $.ajax({
-          url: `${API}/servidores/${request.term}`,
-          dataType: 'json',
-          success: (data) => {
-            response($.map(data, (item) => {
-              return {
-                label: `${item.siape} - ${item.nome}`,
-                value: item.id
-              };
-            }));
-          }
-        });
-      },
-      select: (event, ui) => {
-        input.val(ui.item.label);
-        this.servidor = ui.item.value;
-        return false;
-      },
-      focus: (event, ui) => {
-        input.val(ui.item.label);
-        this.servidor = ui.item.value;
-        return false;
-      }
-    });
-
+  media(avaliacoes: Avaliacao[]): number {
+    return avaliacoes.map(a => a.nota).reduce((anterior, atual) => anterior + atual) / avaliacoes.length;
   }
 
 }

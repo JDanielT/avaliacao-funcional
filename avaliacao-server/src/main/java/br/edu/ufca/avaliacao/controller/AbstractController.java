@@ -24,7 +24,7 @@ public abstract class AbstractController<T extends BaseEntity> {
     public ResponseEntity save(@RequestBody
                                @Valid T entity, BindingResult errors) {
 
-        if(errors.hasErrors()){
+        if (errors.hasErrors()) {
             return ResponseEntity.badRequest().body(getFieldsValidationErrors(errors));
         }
 
@@ -48,7 +48,7 @@ public abstract class AbstractController<T extends BaseEntity> {
 
     protected abstract AbstractService<T> getService();
 
-    public Map<String, String> getFieldsValidationErrors(Errors errors){
+    public Map<String, String> getFieldsValidationErrors(Errors errors) {
         return errors
                 .getFieldErrors()
                 .stream()

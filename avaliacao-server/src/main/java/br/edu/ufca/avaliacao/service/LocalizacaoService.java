@@ -26,9 +26,9 @@ public class LocalizacaoService extends AbstractService<Localizacao> {
         return repository;
     }
 
-    public Localizacao findByCicloIdAndServidorId(Long cicloId, Long servidorId){
+    public Localizacao findByCicloIdAndServidorId(Long cicloId, Long servidorId) {
         var localizacao = getRepository().findByCicloIdAndServidorId(cicloId, servidorId);
-        if(localizacao != null) {
+        if (localizacao != null) {
             localizacao.setUnidade(unidadeService.findById(localizacao.getUnidadeId()));
             localizacao.setServidor(servidorService.findById(localizacao.getServidorId()));
         }

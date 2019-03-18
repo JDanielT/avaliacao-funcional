@@ -29,14 +29,14 @@ public class ServidorService {
         this.rest = rest;
     }
 
-    public Servidor findById(Long id){
-        if(servidores.get(id) == null) {
+    public Servidor findById(Long id) {
+        if (servidores.get(id) == null) {
             servidores.put(id, rest.getForObject(String.format(findByid, id), Servidor[].class)[0]);
         }
         return servidores.get(id);
     }
 
-    public List<Servidor> findByNome(String nome){
+    public List<Servidor> findByNome(String nome) {
         return Arrays.asList(rest.getForObject(String.format(findByNome, nome), Servidor[].class));
     }
 
