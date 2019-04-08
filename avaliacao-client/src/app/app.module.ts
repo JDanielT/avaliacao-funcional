@@ -8,34 +8,24 @@ import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
 import {registerLocaleData} from '@angular/common';
 import {LOCALE_ID, NgModule} from '@angular/core';
 import localePt from '@angular/common/locales/pt';
-
-import {ListCicloComponent} from './component/ciclo/list-ciclo/list-ciclo.component';
-import {FormCicloComponent} from './component/ciclo/form-ciclo/form-ciclo.component';
-import {ConsultaAvaliacaoComponent} from './component/consulta-avaliacao/consulta-avaliacao.component';
-import {FooterComponent} from './component/footer/footer.component';
-import {MenuComponent} from './component/menu/menu.component';
-import {HeaderComponent} from './component/header/header.component';
-import {ListResponsavelUnidadeComponent} from './component/responsavel-unidade/list-responsavel-unidade/list-responsavel-unidade.component';
-import { ListLocalizacaoComponent } from './component/localizacao/list-localizacao/list-localizacao.component';
-import { ServidorAutocompleteComponent } from './component/shared/servidor-autocomplete/servidor-autocomplete.component';
-import { CicloSelectComponent } from './component/shared/ciclo-select/ciclo-select.component';
-
+import {FooterComponent} from './shared-components/footer/footer.component';
+import {MenuComponent} from './shared-components/menu/menu.component';
+import {HeaderComponent} from './shared-components/header/header.component';
+import {ResultadoIndividualComponent} from './consultas/resultado-individual/resultado-individual.component';
+import {AdminComponent} from './shared-components/admin/admin.component';
+import {ReportComponent} from './shared-components/report/report.component';
 
 registerLocaleData(localePt, 'pt');
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConsultaAvaliacaoComponent,
     FooterComponent,
     MenuComponent,
     HeaderComponent,
-    ListCicloComponent,
-    FormCicloComponent,
-    ListResponsavelUnidadeComponent,
-    ListLocalizacaoComponent,
-    ServidorAutocompleteComponent,
-    CicloSelectComponent
+    ResultadoIndividualComponent,
+    AdminComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

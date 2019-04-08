@@ -1,0 +1,59 @@
+<div class="content-header">
+  <h1>
+    Ciclo
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
+    <li><a [routerLink]="['/ciclo']">Ciclos</a></li>
+    <li class="active">Ciclo</li>
+  </ol>
+
+</div>
+
+<section class="content">
+
+  <form (ngSubmit)="submit()" *ngIf="entity" >
+
+    <div class="form-group">
+      <input type="hidden" name="id" class="form-control" [(ngModel)]="entity.id" />
+    </div>
+
+    <div class="row">
+
+      <div class="form-group col-md-4" [class.has-error]="error?.descricao">
+        <label>Descrição</label>
+        <input type="text" name="descricao" class="form-control" [(ngModel)]="entity.descricao" />
+        <div class="help-block" *ngIf="error?.descricao">{{error.descricao}}</div>
+      </div>
+
+      <div class="form-group col-md-2" [class.has-error]="error?.exercicio">
+        <label>Exercício</label>
+        <input type="number" name="exercicio" class="form-control" [(ngModel)]="entity.exercicio" />
+        <div class="help-block" *ngIf="error?.exercicio">{{error.exercicio}}</div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="form-group col-md-3" [class.has-error]="error?.inicio">
+        <label>Data Inicial</label>
+        <input type="text" name="inicio" class="form-control data" [(ngModel)]="entity.inicio" />
+        <div class="help-block" *ngIf="error?.inicio">{{error.inicio}}</div>
+      </div>
+
+      <div class="form-group col-md-3" [class.has-error]="error?.fim">
+        <label>Data Final</label>
+        <input type="text" name="final" class="form-control data" [(ngModel)]="entity.fim" />
+        <div class="help-block" *ngIf="error?.fim">{{error.fim}}</div>
+      </div>
+
+    </div>
+
+    <hr />
+
+    <input type="submit" class="salvar" class="btn btn-primary" />
+
+  </form>
+
+</section>
