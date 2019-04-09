@@ -1,6 +1,6 @@
-package br.com.craweb.security;
+package br.edu.ufca.avaliacao.security;
 
-import br.com.craweb.model.CredenciaisAcesso;
+import br.edu.ufca.avaliacao.model.CredenciaisAcesso;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,10 +11,8 @@ import org.springframework.security.web.authentication.AbstractAuthenticationPro
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,9 +28,9 @@ public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
-            throws AuthenticationException, IOException, ServletException {
+            throws AuthenticationException {
 
-        CredenciaisAcesso credenciais = new CredenciaisAcesso();
+        var credenciais = new CredenciaisAcesso();
 
         try {
 
@@ -52,9 +50,9 @@ public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
     protected void successfulAuthentication(HttpServletRequest request,
                                             HttpServletResponse response,
                                             FilterChain filterChain,
-                                            Authentication auth) throws IOException, ServletException {
+                                            Authentication auth) {
 
-        tokenAuthenticationService.addAuthentication(response, auth.getName());
+        tokenAuthenticationService.addAuthentication(response, auth);
 
     }
 

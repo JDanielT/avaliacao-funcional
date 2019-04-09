@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="resultado-individual" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ef841311-d353-4c60-886d-89eb10e93c00">
+	<property name="ireport.zoom" value="1.3310000000000044"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="18"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="139" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement x="0" y="2" width="555" height="53" uuid="c184029e-b65a-468f-bee7-aa79d1009d2e"/>
+				<imageExpression><![CDATA["/home/ufca/git/avaliacao-funcional/avaliacao-server/src/main/resources/ufca.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="55" width="555" height="20" uuid="5ebd0fc4-3a6f-44d1-99a0-97a78d403d20"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="17" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDADE FEDERAL DO CARIRI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="75" width="555" height="15" uuid="81739d64-1f5d-476a-af14-9ed1a4c8bfcc"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COODENADORIA DE DESENVOLVIMENTO DE PESSOAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="106" width="555" height="20" uuid="36ac73f9-414d-4880-8aa1-9f8fb72588a7"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESULTADO INDIVIDUAL - AVALIAÇÃO 2018]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="44" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

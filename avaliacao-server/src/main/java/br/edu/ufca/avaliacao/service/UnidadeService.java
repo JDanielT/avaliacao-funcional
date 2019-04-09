@@ -29,9 +29,12 @@ public class UnidadeService {
 
     public Unidade findById(Long id) {
         if (UnidadeService.unidades.get(id) == null) {
-            var unidade = rest.getForObject(String.format(findByid, id), Unidade[].class)[0];
-            unidade.setUnidadeResponsavel(findById(unidade.getResponsavel()));
-            UnidadeService.unidades.put(id, unidade);
+            var result = rest.getForObject(String.format(findByid, id), Unidade[].class);
+            var unidade = result.length > 0 ? result[0] : null;
+            if(unidade != null) {
+                unidade.setUnidadeResponsavel(findById(unidade.getResponsavel()));
+                UnidadeService.unidades.put(id, unidade);
+            }
         }
         return UnidadeService.unidades.get(id);
     }

@@ -20,6 +20,9 @@ public class ServidorService {
     @Value("${avaliacao.consulta.servidor.nome}")
     private String findByNome;
 
+    @Value("${avaliacao.consulta.servidor.login}")
+    private String findByLogin;
+
     private static Map<Long, Servidor> servidores = new HashMap<>();
 
     private RestTemplate rest;
@@ -40,5 +43,8 @@ public class ServidorService {
         return Arrays.asList(rest.getForObject(String.format(findByNome, nome), Servidor[].class));
     }
 
+    public Servidor findByLogin(String login) {
+        return rest.getForObject(String.format(findByLogin, login), Servidor[].class)[0];
+    }
 
 }
