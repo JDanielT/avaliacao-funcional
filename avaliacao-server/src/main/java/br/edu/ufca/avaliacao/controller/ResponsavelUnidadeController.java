@@ -14,14 +14,14 @@ import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/responsaveis-unidades")
-public class ResponsavelRespositoryController extends AbstractController<ResponsavelUnidade> {
+public class ResponsavelUnidadeController extends AbstractController<ResponsavelUnidade> {
 
     private ResponsavelUnidadeService service;
 
     private UnidadeService unidadeService;
 
     @Autowired
-    public ResponsavelRespositoryController(ResponsavelUnidadeService service, UnidadeService unidadeService) {
+    public ResponsavelUnidadeController(ResponsavelUnidadeService service, UnidadeService unidadeService) {
         this.service = service;
         this.unidadeService = unidadeService;
     }

@@ -19,7 +19,7 @@ public class UnidadeService {
     @Value("${avaliacao.consulta.unidades}")
     private String findAll;
 
-    private Map<Long, Unidade> unidades = new HashMap<>();
+    private static Map<Long, Unidade> unidades = new HashMap<>();
 
     private RestTemplate rest;
 
@@ -28,10 +28,12 @@ public class UnidadeService {
     }
 
     public Unidade findById(Long id) {
-        if (unidades.get(id) == null) {
-            unidades.put(id, rest.getForObject(String.format(findByid, id), Unidade[].class)[0]);
+        if (UnidadeService.unidades.get(id) == null) {
+            var unidade = rest.getForObject(String.format(findByid, id), Unidade[].class)[0];
+            unidade.setUnidadeResponsavel(findById(unidade.getResponsavel()));
+            UnidadeService.unidades.put(id, unidade);
         }
-        return unidades.get(id);
+        return UnidadeService.unidades.get(id);
     }
 
     public List<Unidade> findAll() {

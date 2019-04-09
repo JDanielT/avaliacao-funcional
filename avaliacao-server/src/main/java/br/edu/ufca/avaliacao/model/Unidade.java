@@ -1,5 +1,6 @@
 package br.edu.ufca.avaliacao.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -11,5 +12,10 @@ public class Unidade implements BaseEntity {
     private String codigo;
     private String sigla;
     private String nome;
+
+    @JsonIgnore
+    private Long responsavel;
+
+    private Unidade unidadeResponsavel;
 
 }

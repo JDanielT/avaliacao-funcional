@@ -20,7 +20,7 @@ public class ServidorService {
     @Value("${avaliacao.consulta.servidor.nome}")
     private String findByNome;
 
-    private Map<Long, Servidor> servidores = new HashMap<>();
+    private static Map<Long, Servidor> servidores = new HashMap<>();
 
     private RestTemplate rest;
 
@@ -30,10 +30,10 @@ public class ServidorService {
     }
 
     public Servidor findById(Long id) {
-        if (servidores.get(id) == null) {
-            servidores.put(id, rest.getForObject(String.format(findByid, id), Servidor[].class)[0]);
+        if (ServidorService.servidores.get(id) == null) {
+            ServidorService.servidores.put(id, rest.getForObject(String.format(findByid, id), Servidor[].class)[0]);
         }
-        return servidores.get(id);
+        return ServidorService.servidores.get(id);
     }
 
     public List<Servidor> findByNome(String nome) {
