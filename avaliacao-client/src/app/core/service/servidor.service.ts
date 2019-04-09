@@ -12,8 +12,8 @@ export class ServidorService {
   constructor(private http: HttpClient) {
   }
 
-  buscar(nome: string): Observable<Servidor[]> {
-    return this.http.get<Servidor[]>(`${API}/servidores/${nome}`);
+  buscar(login: string): Observable<Servidor> {
+    return this.http.get<Servidor>(`${API}/servidores/login/${login}`);
   }
 
 }

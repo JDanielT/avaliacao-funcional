@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {API} from '../../app-api';
+import {AuthService} from '../../core/service/auth.service';
 
 declare let $;
 
@@ -12,7 +13,7 @@ export class ServidorAutocompleteComponent implements OnInit {
 
   @Output() private emitter = new EventEmitter();
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
     this.autocomplete();
@@ -26,6 +27,7 @@ export class ServidorAutocompleteComponent implements OnInit {
         $.ajax({
           url: `${API}/servidores/${request.term}`,
           dataType: 'json',
+          headers: {authorization: this.auth.getToken()},
           success: (data) => {
             response($.map(data, (item) => {
               return {

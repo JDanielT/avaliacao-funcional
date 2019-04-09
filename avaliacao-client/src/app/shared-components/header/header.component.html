@@ -17,17 +17,16 @@
 
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
-        <!-- Notifications: style can be found in dropdown.less -->
         <li class="dropdown notifications-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <i class="fa fa-user"></i>
+            <span class="hidden-xs" *ngIf="servidor" >{{servidor.nome}}  </span> <i class="fa fa-user"></i>
             <span class="label label-warning"></span>
           </a>
           <ul class="dropdown-menu">
             <li>
               <ul class="menu">
                 <li>
-                  <a (click)="logout()" >Sair</a>
+                  <a (click)="logout()">Sair</a>
                 </li>
               </ul>
             </li>

@@ -1,0 +1,36 @@
+<div class="container">
+
+  <form (ngSubmit)="login()" class="form-signin">
+
+    {{error}}
+
+    <h2 class="form-signin-heading text-center">Avaliação Funcional</h2>
+
+    <label for="inputEmail" class="sr-only">login</label>
+    <input type="text"
+           id="inputEmail"
+           name="login"
+           class="form-control"
+           placeholder="login"
+           required
+           autofocus
+           [(ngModel)]="credenciais.username">
+
+    <label for="inputPassword" class="sr-only">Senha</label>
+    <input type="password"
+           id="inputPassword"
+           name="senha"
+           class="form-control"
+           placeholder="senha"
+           required
+           [(ngModel)]="credenciais.password" >
+
+    <button class="btn btn-flat btn-lg btn-primary btn-block" type="submit">entrar</button>
+
+  </form>
+
+</div> <!-- /container -->
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+

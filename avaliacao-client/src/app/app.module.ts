@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
 
@@ -14,6 +14,11 @@ import {HeaderComponent} from './shared-components/header/header.component';
 import {ResultadoIndividualComponent} from './consultas/resultado-individual/resultado-individual.component';
 import {AdminComponent} from './shared-components/admin/admin.component';
 import {ReportComponent} from './shared-components/report/report.component';
+import {LoginComponent} from './shared-components/login/login.component';
+import {CookieService} from 'ngx-cookie-service';
+import {AppInterceptor} from './app-interceptor';
+import { ForbiddenComponent } from './shared-components/forbidden/forbidden.component';
+import { HomeComponent } from './shared-components/home/home.component';
 
 registerLocaleData(localePt, 'pt');
 
@@ -25,7 +30,10 @@ registerLocaleData(localePt, 'pt');
     HeaderComponent,
     ResultadoIndividualComponent,
     AdminComponent,
-    ReportComponent
+    ReportComponent,
+    LoginComponent,
+    ForbiddenComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +47,18 @@ registerLocaleData(localePt, 'pt');
       cancelButtonClass: 'btn'
     })
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'pt'}],
+  providers: [
+    CookieService,
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt'
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
