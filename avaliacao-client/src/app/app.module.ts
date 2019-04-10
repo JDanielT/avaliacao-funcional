@@ -11,14 +11,13 @@ import localePt from '@angular/common/locales/pt';
 import {FooterComponent} from './shared-components/footer/footer.component';
 import {MenuComponent} from './shared-components/menu/menu.component';
 import {HeaderComponent} from './shared-components/header/header.component';
-import {ResultadoIndividualComponent} from './consultas/resultado-individual/resultado-individual.component';
 import {AdminComponent} from './shared-components/admin/admin.component';
 import {ReportComponent} from './shared-components/report/report.component';
 import {LoginComponent} from './shared-components/login/login.component';
 import {CookieService} from 'ngx-cookie-service';
 import {AppInterceptor} from './app-interceptor';
-import { ForbiddenComponent } from './shared-components/forbidden/forbidden.component';
-import { HomeComponent } from './shared-components/home/home.component';
+import {ForbiddenComponent} from './shared-components/forbidden/forbidden.component';
+import {HomeComponent} from './shared-components/home/home.component';
 
 registerLocaleData(localePt, 'pt');
 
@@ -28,7 +27,6 @@ registerLocaleData(localePt, 'pt');
     FooterComponent,
     MenuComponent,
     HeaderComponent,
-    ResultadoIndividualComponent,
     AdminComponent,
     ReportComponent,
     LoginComponent,

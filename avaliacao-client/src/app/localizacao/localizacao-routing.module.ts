@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {ListLocalizacaoComponent} from './list-localizacao/list-localizacao.component';
 
 const routes: Routes = [

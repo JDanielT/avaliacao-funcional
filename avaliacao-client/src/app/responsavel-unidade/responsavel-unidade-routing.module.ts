@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {ListResponsavelUnidadeComponent} from './list-responsavel-unidade/list-responsavel-unidade.component';
 
 const routes: Routes = [

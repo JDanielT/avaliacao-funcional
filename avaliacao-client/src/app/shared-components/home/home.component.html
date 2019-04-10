@@ -9,7 +9,7 @@
 
 <section class="content">
 
-  <p style="font-size: 19px">Olá {{servidor.nome.split(" ")[0]}}, veja abaixo as avaliações disponíveis para você.</p>
+  <p style="font-size: 19px" *ngIf="servidor" >Olá {{servidor.nome.split(" ")[0]}}, veja abaixo as avaliações disponíveis para você.</p>
 
   <div class="info-box">
 

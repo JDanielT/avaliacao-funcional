@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 import {Avaliacao} from '../../core/model/avaliacao';
 import {Localizacao} from '../../core/model/localizacao';
-import {Tipo} from '../../core/model/formulario';
 import {AvaliacaoService} from '../../core/service/avaliacao.service';
 import {LocalizacaoService} from '../../core/service/localizacao.service';
 import swal from 'sweetalert2';
+import {TipoFormulario} from '../../core/model/formulario';
 
 @Component({
   selector: 'app-resultado-individual',
@@ -19,7 +19,7 @@ export class ResultadoIndividualComponent {
   avaliacoes: Avaliacao[];
   localizacao: Localizacao;
 
-  Tipo = Tipo;
+  Tipo = TipoFormulario;
 
   constructor(private avaliacaoService: AvaliacaoService,
               private localizacaoService: LocalizacaoService) {

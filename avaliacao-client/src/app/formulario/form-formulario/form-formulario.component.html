@@ -1,0 +1,53 @@
+<div class="content-header">
+  <h1>
+    Formulário
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
+    <li><a [routerLink]="['/formularios']">Formulários</a></li>
+    <li class="active">Formulário</li>
+  </ol>
+
+</div>
+
+<section class="content">
+
+  <form (ngSubmit)="submit()" *ngIf="entity" >
+
+    <div class="form-group">
+      <input type="hidden" name="id" class="form-control" [(ngModel)]="entity.id" />
+    </div>
+
+    <div class="row">
+
+      <div class="form-group col-md-4" [class.has-error]="error?.descricao">
+        <label>Descrição</label>
+        <input type="text" name="descricao" class="form-control" [(ngModel)]="entity.descricao" />
+        <div class="help-block" *ngIf="error?.descricao">{{error.descricao}}</div>
+      </div>
+
+    </div>
+
+    <div class="row" >
+
+      <div class="form-group col-md-4" [class.has-error]="error?.tipo">
+        <label>Tipo</label>
+        <select type="text" class="form-control"
+                required
+                name="tipo"
+                [(ngModel)]="entity.tipo">
+          <option [value]="undefined">Selecione</option>
+          <option *ngFor="let t of tipos" [value]="t">{{t}}</option>
+        </select>
+        <div class="help-block" *ngIf="error?.tipo">{{error.tipo}}</div>
+      </div>
+
+    </div>
+
+    <hr />
+
+    <input type="submit" class="salvar" class="btn btn-primary" />
+
+  </form>
+
+</section>

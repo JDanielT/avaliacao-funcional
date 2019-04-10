@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {ListCicloComponent} from './list-ciclo/list-ciclo.component';
 import {FormCicloComponent} from './form-ciclo/form-ciclo.component';
 

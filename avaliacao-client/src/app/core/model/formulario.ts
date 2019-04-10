@@ -4,11 +4,11 @@ export class Formulario implements BaseEntity {
 
   id: number;
   descricao: string;
-  tipo: Tipo;
+  tipo: TipoFormulario;
 
 }
 
-export enum Tipo {
+export enum TipoFormulario {
 
   AUTO_AVALIACAO_SEM_FUNCAO_GERENCIAL  = 'Auto avaliação - Sem função gerencial',
   AUTO_AVALIACAO_COM_FUNCAO_GERENCIAL = 'Auto avaliação - Com função gerencial',
@@ -17,5 +17,7 @@ export enum Tipo {
   SERVIDORES_PELA_CHEFIA_COM_FUNCAO_GERENCIAL = 'Servidores pela chefia - Com função gerencial'
 
 }
+
+export const TIPO_FORMULARIO: TipoFormulario[] = Object.values(TipoFormulario).filter(x => typeof x === 'string');
 
 
