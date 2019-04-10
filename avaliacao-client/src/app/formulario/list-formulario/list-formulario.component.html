@@ -35,6 +35,10 @@
       <td>{{entity.tipo}}</td>
       <td class="opcoes">
 
+        <a class="btn btn-primary" [routerLink]="['/perguntas', entity.id]" >
+          <i class="fa fa-question" aria-hidden="true"></i>
+        </a>
+
         <button class="btn btn-success" (click)="update(entity)">
           <i class="fa fa-pencil" aria-hidden="true"></i>
         </button>
