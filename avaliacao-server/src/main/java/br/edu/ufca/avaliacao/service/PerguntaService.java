@@ -22,8 +22,8 @@ public class PerguntaService extends AbstractService<Pergunta> {
         return repository;
     }
 
-    public List<Pergunta> findByFormularioIdOrderById(Long formId) {
-        return getRepository().findByFormularioIdOrderById(formId);
+    public List<Pergunta> findByFormularioIdAAndCicloIdOrderById(Long formId, Long cicloId) {
+        return getRepository().findByFormularioIdAAndCicloIdOrderById(formId, cicloId);
     }
 
 }
