@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface PerguntaRepository extends JpaRepository<Pergunta, Long> {
 
-    List<Pergunta> findByFormularioIdAAndCicloIdOrderById(Long formId, Long cicloId);
+    List<Pergunta> findByFormularioIdAndCicloIdOrderById(Long formId, Long cicloId);
 
 }

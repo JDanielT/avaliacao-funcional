@@ -29,7 +29,7 @@ public class PerguntaController extends AbstractController<Pergunta> {
 
     @GetMapping("/formulario/{formularioId}/ciclo/{cicloId}")
     public ResponseEntity<List<Pergunta>> findByFormularioAndCiclo(@PathVariable Long formularioId, @PathVariable Long cicloId) {
-        var perguntas = getService().findByFormularioIdAAndCicloIdOrderById(formularioId, cicloId);
+        var perguntas = getService().findByFormularioIdAndCicloIdOrderById(formularioId, cicloId);
         if (perguntas == null || perguntas.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
