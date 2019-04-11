@@ -1,7 +1,4 @@
 <div class="content-header">
-  <h1>
-    Perguntas
-  </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-home"></i> Início</a></li>
     <li><a href="#"><i class="fa fa-file"></i> Formulários</a></li>
@@ -13,6 +10,7 @@
 
   <fieldset *ngIf="formulario">
 
+    <legend><h2>Pesquisa de Perguntas</h2></legend>
 
     <legend><h3>Formulário</h3></legend>
 
@@ -21,9 +19,19 @@
       <label>Tipo: </label> {{formulario.tipo}}
     </div>
 
-    <legend style="margin-top: 5%"><h3>Ciclo</h3></legend>
+    <legend style="margin-top: 5%"><h3>Avaliação</h3></legend>
     <div class="col-md-4">
-      <app-ciclo-select></app-ciclo-select>
+      <div class="input-group input-group-sm">
+
+        <app-ciclo-select (emitter)="getIdCiclo($event)"></app-ciclo-select>
+
+        <span class="input-group-btn">
+            <button class="btn btn-flat btn-success" (click)="buscarPerguntas()">
+              <i class="fas fa-search"></i>
+            </button>
+          </span>
+
+      </div>
     </div>
 
     <div style="margin-top: 2%" class="col-md-10">
@@ -34,11 +42,11 @@
 
   </fieldset>
 
-  <hr/>
-
 </div>
 
 <section class="content">
+
+  <legend><h3>Resultado</h3></legend>
 
   <table class="ui celled table">
     <thead>

@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
@@ -14,14 +16,17 @@ public class Pergunta implements BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "ciclo_id")
     private Ciclo ciclo;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "fomrulario_id")
     private Formulario formulario;
 
+    @NotBlank
     private String descricao;
 
     @Data

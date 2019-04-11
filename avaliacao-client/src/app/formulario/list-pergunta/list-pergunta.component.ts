@@ -6,6 +6,7 @@ import {PerguntaService} from '../../core/service/pergunta.service';
 import {Formulario} from '../../core/model/formulario';
 import {FormularioService} from '../../core/service/formulario.service';
 import {Ciclo} from '../../core/model/ciclo';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-pergunta',
@@ -35,9 +36,17 @@ export class ListPerguntaComponent extends AbstractListComponent<Pergunta> {
     return this.service;
   }
 
-  buscar(): void {
+  getIdCiclo(event): void {
+    this.ciclo = new Ciclo();
+    this.ciclo.id = event.id;
+  }
+
+  buscarPerguntas(): void {
     this.getService().buscar(this.formulario.id, this.ciclo.id).subscribe(data => {
       this.setList(data);
+    }, err => {
+      this.setList(undefined);
+      swal('Oops!', 'Nenhuma informação encontrada', 'warning');
     });
   }
 
