@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Ciclo} from '../../core/model/ciclo';
 import {CicloService} from '../../core/service/ciclo.service';
 
@@ -10,6 +10,8 @@ import {CicloService} from '../../core/service/ciclo.service';
 export class CicloSelectComponent implements OnInit {
 
   ciclos: Ciclo[];
+
+  @Input('ciclo') selected: Ciclo;
   @Output() emitter = new EventEmitter();
 
   constructor(private cicloService: CicloService) {
@@ -18,6 +20,13 @@ export class CicloSelectComponent implements OnInit {
   ngOnInit() {
     this.cicloService.findAll().subscribe(data => {
       this.ciclos = data;
+
+      if (!this.selected) {
+        this.selected = this.ciclos[0];
+      }
+
+      this.change(this.selected.id);
+
     });
   }
 

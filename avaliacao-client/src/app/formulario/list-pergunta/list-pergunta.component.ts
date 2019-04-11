@@ -8,6 +8,8 @@ import {FormularioService} from '../../core/service/formulario.service';
 import {Ciclo} from '../../core/model/ciclo';
 import swal from 'sweetalert2';
 
+declare let $: any;
+
 @Component({
   selector: 'app-list-pergunta',
   templateUrl: './list-pergunta.component.html',
@@ -27,7 +29,7 @@ export class ListPerguntaComponent extends AbstractListComponent<Pergunta> {
 
 
   ngOnInit(): void {
-    this.formularioService.getById(this.actRoute.snapshot.params.formularioId).subscribe(data => {
+    this.formularioService.getById(this.actRoute.snapshot.params.formId).subscribe(data => {
       this.formulario = data;
     });
   }
@@ -42,12 +44,14 @@ export class ListPerguntaComponent extends AbstractListComponent<Pergunta> {
   }
 
   buscarPerguntas(): void {
-    this.getService().buscar(this.formulario.id, this.ciclo.id).subscribe(data => {
-      this.setList(data);
-    }, err => {
-      this.setList(undefined);
-      swal('Oops!', 'Nenhuma informação encontrada', 'warning');
-    });
+    if (this.formulario && this.ciclo) {
+      this.getService().buscar(this.formulario.id, this.ciclo.id).subscribe(data => {
+        this.setList(data);
+      }, err => {
+        this.setList(undefined);
+        swal('Oops!', 'Nenhuma informação encontrada', 'warning');
+      });
+    }
   }
 
 }

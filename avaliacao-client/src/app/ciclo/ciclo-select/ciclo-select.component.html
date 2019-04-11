@@ -1,4 +1,4 @@
-<select class="form-control" #ciclo (change)="change(ciclo.value)" >
-  <option value="undefined">Selecione</option>
+<select *ngIf="selected" class="form-control" #ciclo (change)="change(ciclo.value)" [value]="selected.id" >
+  <option value="undefined" disabled >Selecione</option>
   <option *ngFor="let c of ciclos" [value]="c.id" >{{c.descricao}}</option>
 </select>

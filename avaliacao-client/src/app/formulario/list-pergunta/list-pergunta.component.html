@@ -26,16 +26,16 @@
         <app-ciclo-select (emitter)="getIdCiclo($event)"></app-ciclo-select>
 
         <span class="input-group-btn">
-            <button class="btn btn-flat btn-success" (click)="buscarPerguntas()">
-              <i class="fas fa-search"></i>
-            </button>
-          </span>
+          <button id="search" class="btn btn-flat btn-success" (click)="buscarPerguntas()">
+            <i class="fas fa-search"></i>
+          </button>
+        </span>
 
       </div>
     </div>
 
     <div style="margin-top: 2%" class="col-md-10">
-      <button class="btn btn-primary" (click)="add()">
+      <button class="btn btn-primary" data-toggle="modal" data-target="#pergunta" >
         Novo <i class="fa fa-plus" aria-hidden="true"></i>
       </button>
     </div>
@@ -46,7 +46,7 @@
 
 <section class="content">
 
-  <legend><h3>Resultado</h3></legend>
+  <legend><h3>Perguntas</h3></legend>
 
   <table class="ui celled table">
     <thead>
@@ -78,3 +78,5 @@
   </table>
 
 </section>
+
+<app-form-pergunta [ciclo]="ciclo" [formulario]="formulario" ></app-form-pergunta>

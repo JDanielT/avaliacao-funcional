@@ -6,11 +6,11 @@
 
 .opcoes{
     text-align: center !important;
-    width: 150px;
+    width: 250px;
 }
 
 .divider {
-    width: 3px !important
+    margin-right: 3px !important
 }
 
 .blink {

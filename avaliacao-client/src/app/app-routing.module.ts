@@ -17,7 +17,6 @@ const routes: Routes = [
         {path: 'consultas', loadChildren: './consultas/consultas.module#ConsultasModule', canActivate: [AppGuard]},
         {path: 'formularios', loadChildren: './formulario/formulario.module#FormularioModule', canActivate: [AppGuard]},
         {path: 'localizacoes', loadChildren: './localizacao/localizacao.module#LocalizacaoModule', canActivate: [AppGuard]},
-        {path: 'perguntas', loadChildren: './pergunta/pergunta.module#PerguntaModule', canActivate: [AppGuard]},
         {path: 'responsaveis', loadChildren: './responsavel-unidade/responsavel-unidade.module#ResponsavelUnidadeModule', canActivate: [AppGuard]}
       ]
     },
